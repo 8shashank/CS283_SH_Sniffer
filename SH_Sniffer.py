@@ -1,18 +1,19 @@
 # load the pcap file
 from scapy.all import *
 from user_agents import parse
+from collections import defaultdict
 import re
 
 pkts = rdpcap("httpdata.pcap")
 
 # web_browsers and their counts
-web_browsers = {}
+web_browsers = defaultdict(int)
 
 # operating systems and their counts
-oses = {}
+oses = defaultdict(int)
 
 # devices and their count
-devices = {}
+devices = defaultdict(int)
 
 # print pkts[0].load.split('\r\n')[5]
 
@@ -23,20 +24,23 @@ for pkt in pkts:
     if ua_object:
         user_agent = parse(ua_object.group())
         browser_family = user_agent.browser.family
+        web_browsers[browser_family] += 1
         os = user_agent.os.family
+        oses[os] += 1
         device = user_agent.device.family
-        if browser_family in web_browsers:
-            web_browsers[browser_family] += 1
-        else:
-            web_browsers[browser_family] = 1
-        if os in oses:
-            oses[os] += 1
-        else:
-            oses[os] = 1
-        if device in devices:
-            devices[device] += 1
-        else:
-            devices[device] = 1
+        devices[device] += 1
+        # if browser_family in web_browsers:
+        #     web_browsers[browser_family] += 1
+        # else:
+        #     web_browsers[browser_family] = 1
+        # if os in oses:
+        #     oses[os] += 1
+        # else:
+        #     oses[os] = 1
+        # if device in devices:
+        #     devices[device] += 1
+        # else:
+        #     devices[device] = 1
 
 print web_browsers
 print oses
