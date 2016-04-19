@@ -1,0 +1,2 @@
+sudo pip install scapy
+sudo pip install pyyaml ua-parser user-agents
