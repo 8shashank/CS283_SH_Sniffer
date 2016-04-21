@@ -19,8 +19,6 @@ from bokeh.resources import INLINE
 # Returns a list of random N colors
 # Source:
 # https://stackoverflow.com/questions/876853/generating-color-ranges-in-python
-
-
 def get_n_colors(N):
     colors = []
     for i in range(0, N):
@@ -30,8 +28,6 @@ def get_n_colors(N):
 # Like range(a,b,step) but for float values
 # Source:
 # https://stackoverflow.com/questions/477486/python-decimal-range-step-value
-
-
 def frange(x, y, jump):
     while x < y:
         yield x
@@ -39,8 +35,6 @@ def frange(x, y, jump):
 
 # Returns tuple containing lists of latitude, longitude and hosting org.
 # Side effect: Removes IP from input parameters if it is invalid
-
-
 def reverse_lookup_ips(top_ips, top_counts):
     lat = []
     lon = []
@@ -64,8 +58,6 @@ def reverse_lookup_ips(top_ips, top_counts):
 
 # Fuzz locations by a bit so they're not all centered at one point
 # Call if API returns same lat, lon for any location in a particular city
-
-
 def fuzz_locations(lats, lons):
     # just in case two lists are of different size, use smaller
     FUZZ_FACTOR = 0.03
@@ -85,8 +77,6 @@ def get_ip_type(ip):
         return "INVALID"
 
 # Create the main map document and return it
-
-
 def make_map(pkts):
     NUMBER_OF_COORDINATES = 30  # How many IPs to plot
 
