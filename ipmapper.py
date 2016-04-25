@@ -39,7 +39,7 @@ def reverse_lookup_ips(top_ips, top_counts):
     lat = []
     lon = []
     org = []
-    # Get the lat, lon data for top IPs
+    # Get the latitude, longitude data for top IPs
     for ip in top_ips:
         response = urllib2.urlopen("http://ip-api.com/json/" + ip).read()
         data = json.loads(response)
@@ -48,6 +48,7 @@ def reverse_lookup_ips(top_ips, top_counts):
             lat.append(data["lat"])
             lon.append(data["lon"])
             org.append(data["org"] if "org" in data else "N/A")
+
         # if failed, remove IP address from list of IPs to plot
         else:
             idx = top_ips.index(ip)
