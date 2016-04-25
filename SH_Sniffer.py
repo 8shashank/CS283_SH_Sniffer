@@ -96,13 +96,6 @@ def graphPacketsInfo(web_browsers, oses, devices, activity_map, first_date):
 
     show(vplot(browser_chart, os_chart, devices_chart, activity_chart))
 
-'''
-if __name__ == "__main__":
-    pkts = getPacketsFromFile()
-    browsers, oses, devices, activity_map, first_date = getPacketsInfo(pkts)
-    graphPacketsInfo(browsers, oses, devices, activity_map, first_date)
-'''
-
 
 '''
 The following methods are for IP mapping purpose
