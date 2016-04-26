@@ -21,7 +21,7 @@ from bokeh.charts import Bar, output_file, show, vplot
 from bokeh.plotting import figure
 
 def getPacketsFromFile(fileName="httpdata.pcap"):
-    return rdpcap("httpdata.pcap")
+    return rdpcap(fileName)
 
 '''
 The following methods are for packet information
